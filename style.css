@@ -4,14 +4,15 @@
 */
 
 :root {
-    /* Colors - High Contrast B&W */
+    /* Colors - Brand Palette Extracted from Logo */
     --bg-primary: #ffffff;
-    --bg-secondary: #000000;
+    --bg-secondary: #0a0704; /* Preto café ultra escuro para harmonizar */
     --text-primary: #000000;
     --text-secondary: rgba(0, 0, 0, 0.6);
-    --gold: #c5a059;
-    --gold-light: #ecd099;
-    --gold-gradient: linear-gradient(135deg, #c5a059 0%, #ecd099 50%, #c5a059 100%);
+    --gold: #C29653;       /* Dourado médio / Borda da logo */
+    --gold-light: #E9D29A; /* Dourado claro / Reflexo */
+    --gold-dark: #4A351E;  /* Marrom forte / Miolo da logo */
+    --gold-gradient: linear-gradient(135deg, #C29653 0%, #E9D29A 50%, #8A6433 100%);
     
     /* Spacing */
     --container-width: 1400px;
@@ -81,10 +82,7 @@ p {
 
 .section-subtitle {
     font-size: 1.1rem;
-    background: var(--gold-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--gold);
     text-transform: uppercase;
     letter-spacing: 0.2em;
     font-weight: 800;
@@ -238,10 +236,7 @@ p {
 
 .hero-content p {
     font-size: 1.1rem;
-    background: var(--gold-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--gold-light);
     letter-spacing: 0.15em;
     font-weight: 500; /* Medium-Bold for subtitle */
     margin-bottom: 3rem;
@@ -258,18 +253,17 @@ p {
     text-decoration: none;
     font-weight: 800;
     font-size: 0.9rem;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
     transition: var(--transition);
     border: 1px solid var(--gold);
-    text-transform: uppercase;
+    text-transform: none;
 }
 
 .cta-button:hover {
     background-color: var(--gold-light);
     color: #000;
-    transform: translateY(-5px) scale(1.05); /* Added scale 1.05 */
-    box-shadow: 0 15px 30px rgba(197, 160, 89, 0.4);
-    filter: brightness(1.1); /* Added brightness effect */
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(197, 160, 89, 0.2);
 }
 
 .outline-btn {
@@ -390,8 +384,8 @@ section {
 
 .cta-banner-btn:hover {
     background-color: #222;
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 /* Menu Grid */
@@ -414,8 +408,8 @@ section {
 
 .card:hover {
     background: #1c1c1c;
-    transform: translateY(-12px);
-    box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+    transform: translateY(-4px);
+    border-color: rgba(255,255,255,0.15);
 }
 
 .card-img-container {
@@ -432,7 +426,7 @@ section {
 }
 
 .card:hover .card-img-container img {
-    transform: scale(1.15); /* Zoom hover effect */
+    transform: scale(1.03); /* Zoom hover effect sutíl */
 }
 
 .card-content {
@@ -726,10 +720,7 @@ section {
 }
 
 .text-gold {
-    background: var(--gold-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--gold);
     display: inline-block;
 }
 
@@ -767,9 +758,8 @@ section {
 
 .instagram-btn-primary:hover {
     background-color: var(--gold-light);
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(197, 160, 89, 0.4);
-    filter: brightness(1.1);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(197, 160, 89, 0.2);
 }
 
 .followers-pill {
@@ -813,18 +803,18 @@ section {
     height: auto;
     aspect-ratio: 9 / 18.5;
     margin: 0 auto;
-    border: 10px solid #111;
+    border: 4px solid #111;
     border-radius: 40px;
     background-color: #000;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.9), inset 0 0 0 2px #333;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), inset 0 0 0 1px #333;
     transform: translateY(0);
     transition: var(--transition);
 }
 
 .phone-mockup:hover {
-    transform: translateY(-10px);
+    transform: translateY(-4px);
 }
 
 .phone-notch {
@@ -1031,13 +1021,14 @@ footer {
     }
 }
 
-/* Premium Shadows & Depth */
+/* Minimalist Shadows & Depth */
 .card, .env-map-wrap, .img-wrapper {
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    box-shadow: none;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .card:hover {
-    box-shadow: 0 30px 60px rgba(197, 160, 89, 0.15);
+    /* handled cleanly via normal styling */
 }
 
 .video-overlay {
@@ -1414,8 +1405,8 @@ footer {
 }
 
 .footer-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(197, 160, 89, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(197, 160, 89, 0.2);
 }
 
 @media (max-width: 1024px) {

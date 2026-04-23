@@ -145,7 +145,7 @@ const locationSwiper = new Swiper('.location-swiper', {
     centeredSlides: true,
     slidesPerView: 'auto',
     spaceBetween: 30,
-    speed: 3500, // Faster than 6000
+    speed: 8000, // Faster than 6000
     autoplay: {
         delay: 0,
         disableOnInteraction: false,
@@ -170,4 +170,41 @@ document.querySelectorAll('.faq-question').forEach(button => {
         
         faqItem.classList.toggle('active');
     });
+});
+
+// Store Status Logic (Aberto/Fechado)
+function updateStoreStatus() {
+    const statusElement = document.getElementById('status-loja');
+    if (!statusElement) return;
+
+    // Obtém o horário local
+    const now = new Date();
+    const day = now.getDay(); // 0 = Domingo, 1 = Segunda, etc.
+    const hour = now.getHours();
+    
+    let isOpen = false;
+    
+    if (day >= 1 && day <= 6) {
+        // Segunda a Sábado: 11h às 00h (considerado até as 23:59 para o script do dia)
+        if (hour >= 11 && hour <= 23) {
+            isOpen = true;
+        }
+    } else if (day === 0) {
+        // Domingo: 11h às 18h
+        if (hour >= 11 && hour < 18) {
+            isOpen = true;
+        }
+    }
+    
+    if (isOpen) {
+        statusElement.innerHTML = '<span style="color: #4CAF50; font-size: 1.2rem; line-height: 1;">🟢</span> Aberto agora';
+    } else {
+        statusElement.innerHTML = '<span style="color: #F44336; font-size: 1.2rem; line-height: 1;">🔴</span> Abrimos amanhã às 11h';
+    }
+}
+
+// Executa a primeira vez e então atualiza a cada minuto
+document.addEventListener('DOMContentLoaded', () => {
+    updateStoreStatus();
+    setInterval(updateStoreStatus, 60000);
 });
